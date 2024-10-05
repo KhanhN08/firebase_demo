@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="wrapper wrapper-1">
+    <h1>Login</h1>
+    <p>Welcome back my friend</p>
+    <br>
+    <p id="error-message"></p>
+    <form id="form">
+      <div>
+        <label for="email-input">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.7-8 5.334L4 8.7V6.297l8 5.333 8-5.333V8.7z">
+            </path>
+          </svg>
+        </label>
+        <input type="email" name="email" id="email-input" placeholder="Email">
+      </div>
+      <div>
+        <label for="password-input">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+            <path
+              d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm240-200q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80Z" />
+          </svg>
+        </label>
+        <input type="password" name="password" id="password-input" placeholder="Password">
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <p>Login with <button class="google-button" id="signupwithGoogle">Google</button></p>
+    <p>New here? <a href="index.html">Create an Account</a></p>
+  </div>
+  <div class="wrapper wrapper-2">
+    <h1>SETUP</h1>
+    <p>Add a profile picture for your account</p>
+    <br>
+    <div class="profile-pic-container">
+      <img id="imageDisplay" src="../avatar.jpg" alt="Profile Picture" class="avatar" />
+      <div class="file-label">
+        <label for="fileInput" id="fileLabel">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M11 15h2V9h3l-4-5-4 5h3z"></path>
+            <path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
+          </svg>
+          Choose file
+        </label>
+        <input type="file" id="fileInput" accept="image/*" class="image-input" />
+      </div>
+
+      <button id="uploadBtn">Upload</button>
+      <a href="dashboard.html" class="userMainLink">usermain</a>
+    </div>
+  </div>
+  <script type="module" src="./validation.js"></script>
+  <script>
+    const fileLabel = document.getElementById('fileLabel');
+    const PicContainer = document.querySelector('.profile-pic-container');
+
+    fileInput.addEventListener('change', function () {
+      if (fileInput.files.length > 0) {
+        const fileName = fileInput.files[0].name;
+        PicContainer.classList.add('selected');
+        fileLabel.textContent = `File selected: ${fileName}`;
+
+      } else {
+        fileLabel.textContent = 'Choose file';
+        PicContainer.classList.remove('selected');
+      }
+    });
+  </script>
+</body>
+
+</html>

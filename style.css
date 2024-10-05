@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+  --accent-color: hsl(274, 95%, 30%);
+  --text-color: hsl(285, 7%, 11%);
+  --input-color: #F3F0FF;
+  --body-color: hsl(273, 100%, 99%);
+  --title-color-dark: hsl(273, 83%, 98%);
+  --text-color-dark: hsl(273, 55%, 44%);
+  --container-color-dark: hsl(273, 80%, 14%);
+
+  --body-font: 'Poppins', sans-serif;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-family: Poppins, Segoe UI, sans-serif;
+  font-size: 1rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+body{
+  min-height: 100vh;
+  background-image: url(background-abstract.jpg);
+  background-size: cover;
+  background-position: right;
+  overflow: hidden;
+}
+
+.wrapper{
+  box-sizing: border-box;
+  background-color: var(--body-color);
+  height: 100vh;
+  width: max(40%, 600px);
+  padding: 2rem;
+  border-radius: 0 10px 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1{
+  text-transform: uppercase;
+}
+
+p{
+  font-size: inherit;
+}
+
+form{
+  width: min(400px, 100%);
+  margin-top: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+}
+
+form > div{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+form label{
+  flex-shrink: 0;
+  box-sizing: border-box;
+  height: 43px;
+  width: 43px;
+  background-color: var(--input-color);
+  fill: var(--text-color-dark);
+  color: var(--text-color);
+  border-radius: 1000px 0 0 1000px;
+  border: 2px solid var(--input-color);
+  border-right: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: inherit;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+
+form input{
+  box-sizing: border-box;
+  flex-grow: 1;
+  min-width: 0;
+  height: 43px;
+  padding: 1em;
+  font: inherit;
+  border-radius: 0 1000px 1000px 0;
+  border: 2px solid var(--input-color);
+  border-left: none;
+  background-color: var(--input-color);
+  transition: 0.2s ease;
+}
+
+/* form input:hover{
+  border-color: var(--accent-color);
+} */
+
+form input:focus{
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+div:has(input:focus) > label{
+  border-color: var(--accent-color);
+  border-right: none;
+  fill: var(--accent-color);
+  color: var(--accent-color);
+}
+
+form input::placeholder{
+  color: var(--text-color);
+}
+
+form button{
+  margin-top: 5px;
+  border: none;
+  width: 100%;
+  border-radius: 1000px;
+  padding: .75em 4em;
+  background-color: var(--text-color-dark);
+  color: var(--body-color);
+  font: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+form button:hover{
+  background-color: var(--accent-color);
+}
+
+form button:focus{
+  outline: none;
+  background-color: var(--text-color);
+}
+
+a{
+  text-decoration: none;
+  color: var(--text-color-dark);
+  cursor: pointer;
+}
+
+a:hover{
+  text-decoration: underline;
+  color: var(--accent-color);
+}
+
+form div.incorrect label{
+  border-color: hsl(353, 91%, 51%);
+}
+
+form div.incorrect input{
+  border-color: hsl(353, 91%, 51%);
+}
+
+#error-message{
+  color:hsl(353, 91%, 51%);
+}
+
+.google-button{
+  all: unset;
+  color:var(--text-color-dark);
+  font-size: inherit;
+  transition: 0.15s ease;
+  cursor: pointer;
+}
+
+.google-button:hover{
+  text-decoration: underline;
+  color: var(--accent-color);
+}
+
+.avatar{
+  width: 150px;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.profile-pic-container{
+  width: min(400px, 100%);
+  margin-top: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+}
+
+input[type="file"]{
+  display: none;
+}
+
+.file-label{
+  box-sizing: border-box;
+  margin-top: 25px;
+  border: none;
+  width: 100%;
+  border-radius: 1000px;
+  padding: .75em 4em;
+  background-color: var(--input-color);
+  color: var(--text-color-dark);
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  fill: var(--text-color-dark);
+}
+
+.file-label svg{
+  vertical-align: top;
+}
+
+.file-label:hover{
+  background-color: #ede8fb;
+  fill:var(--accent-color);
+  color: var(--accent-color);
+}
+
+.profile-pic-container.selected .file-label{
+  box-sizing: border-box;
+  margin-top: 25px;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  padding: .75em 4em;
+  text-transform: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.profile-pic-container button{
+  margin-top: 5px;
+  border: none;
+  width: 100%;
+  border-radius: 1000px;
+  padding: .75em 4em;
+  background-color: var(--text-color-dark);
+  color: var(--body-color);
+  font: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.profile-pic-container button:hover{
+  background-color: var(--accent-color);
+}
+
+.profile-pic-container button:focus{
+  outline: none;
+  background-color: var(--text-color);
+}
+
+
+
+
+
+
+@media(max-width: 1100px){
+  .wrapper{
+    width: min(600px, 100%);
+    border-radius: 0;
+  }
+}
+

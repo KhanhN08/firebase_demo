@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- --------------- Box icons ------------------ -->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+  <!-- ---------------- CSS ------------------ -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/todo.css">
+  <link rel='stylesheet' href="assets/css/dashboard.css">
+
+  <title>Responsive menu</title>
+</head>
+
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav--menu container" id="nav-menu">
+      <div class="nav--shape"></div>
+
+      <div class="nav--close" id="nav-close">
+        <i class='bx bx-x'></i>
+      </div>
+
+      <div class="nav--data">
+        <img id="userProfilePicture" src="../avatar.jpg" alt="Profile Picture" class="nav--img" />
+
+        <span class="nav--greeting">Your profile: Hi, I'm</span>
+        <h1 class="nav--name" id="userName"></h1>
+
+      </div>
+
+      <ul class="nav--list">
+        <li class="nav--item nav--homepage">
+          <a href="#" class="nav--link" id="homepage-toggle">
+            <i class='bx bx-grid-alt'></i> Homepage <i class='bx bx-chevron-down'></i>
+          </a>
+          <ul class="nav--dropdown" id="homepage-dropdown">
+            <li class="nav--item">
+              <a href="#home" class="nav--link">
+                <i class='bx bx-home'></i> Home
+              </a>
+            </li>
+            <li class="nav--item">
+              <a href="#portfolio" class="nav--link">
+                <i class='bx bx-briefcase-alt-2'></i> Portfolio
+              </a>
+            </li>
+            <li class="nav--item">
+              <a href="#about" class="nav--link">
+                <i class='bx bx-user'></i> About
+              </a>
+            </li>
+            <li class="nav--item">
+              <a href="#contact" class="nav--link">
+                <i class='bx bx-message-square-detail'></i> Contact
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav--item nav--profile">
+          <a href="#" class="nav--link" id="profile-toggle">
+            <i class='bx bx-user-circle'></i> My Profile <i class='bx bx-chevron-down'></i>
+          </a>
+          <ul class="nav--dropdown" id="profile-dropdown">
+            <li><a href="#account-settings">Account Settings</a></li>
+            <li><a href="#logout">Logout</a></li>
+            <li><a href="#logout">Logout</a></li>
+            <li><a href="#logout">Logout</a></li>
+            <li><a href="#logout">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!--=============== MAIN ===============-->
+  <main class="main" id="main">
+    <!--=============== HEADER ===============-->
+    <header class="header" id="header">
+      <nav class="header--nav container">
+        <a href="#" class="header--logo">
+          Bales
+        </a>
+
+        <!-- Toggle button -->
+        <div class="header--toggle" id="header-toggle">
+          <i class='bx bx-grid-alt'></i>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Grid-layout-1 -->
+    <section class="section container">
+      <div class="summary grid-layout-1">
+        <div class="element-summary">
+          <div class="summary-heading">
+            <div>
+              <h1>Ăn uống đầy đủ</h1>
+              <p>Ăn đúng bữa</p>
+              <p>Uống 2l nước</p>
+            </div>
+            <div class="svg-cont">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path d="M11 2h2v7h-2zm0 13h2v7h-2zm4-4h7v2h-7zM2 11h7v2H2z"></path>
+              </svg>
+            </div>
+          </div>
+
+          <div class="progress-cont" id="progress-container-1">
+            <p class="progress-stats">26%</p>
+            <div class="progress">
+              <div class="progress-value"></div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="element-summary">
+          <div class="summary-heading">
+            <div>
+              <h1>Ngủ đủ giấc</h1>
+              <p>Ngủ đủ</p>
+              <p>Ngủ đúng giờ</p>
+            </div>
+            <div class="svg-cont">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path d="M11 2h2v7h-2zm0 13h2v7h-2zm4-4h7v2h-7zM2 11h7v2H2z"></path>
+              </svg>
+            </div>
+          </div>
+
+          <div class="progress-cont" id="progress-container-2">
+            <p class="progress-stats">26%</p>
+            <div class="progress">
+              <div class="progress-value"></div>
+            </div>
+          </div>
+        </div>
+        <div class="element-summary">
+          <div class="summary-heading">
+            <div>
+              <h1>Tâm trạng</h1>
+              <p>Cảm xúc hiện tại</p>
+              <p>Buồn/vui</p>
+            </div>
+            <div class="svg-cont">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path d="M11 2h2v7h-2zm0 13h2v7h-2zm4-4h7v2h-7zM2 11h7v2H2z"></path>
+              </svg>
+            </div>
+          </div>
+
+          <div class="progress-cont" id="progress-container-3">
+            <p class="progress-stats">26%</p>
+            <div class="progress">
+              <div class="progress-value"></div>
+            </div>
+          </div>
+        </div>
+        <div class="element-summary eleq">
+          <div class="el-quote">
+            <h1>BE YOUR BEST VERSION EVERY DAY</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid-layout-2 -->
+    <section class="container">
+      <div class="grid-layout-2">
+        <div class="chart-container">
+          <canvas id="todo-chart"></canvas>
+        </div>
+
+        <div class="todo-pie">
+          <div class="pie-container">
+            <div class="chart-heading">
+              <h1>ĐÃ HOÀN THÀNH</h1>
+              <div>
+                <div class="pie animate">0%</div>
+              </div>
+            </div>
+
+            <div class="todo-stats">
+              <p>Total Todos: <span id="total-todos">0</span></p>
+              <p>Completed Todos: <span id="completed-todos">0</span></p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid-layout-3 -->
+    <section class="container">
+      <div class="grid-layout-3">
+        <div class="checklist-cont">
+          <div class="checklist-element">
+            <h3>Ăn uống đầy đủ</h3>
+            <div class="checklist" data-progress-id="progress-container-1">
+              <input type="checkbox" class="task" id="checklist-e-1">
+              <label class="label" for="checklist-e-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                  <path
+                    d="M5 2h2v3H5zm4 0h2v3H9zm4 0h2v3h-2zm6 7h-2V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3h2c1.103 0 2-.897 2-2v-5c0-1.103-.897-2-2-2zm-2 7v-5h2l.002 5H17z">
+                  </path>
+                </svg>
+              </label>
+
+              <input type="checkbox" class="task" id="checklist-e-2">
+              <label class="label" for="checklist-e-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                  <path
+                    d="M5 2h2v3H5zm4 0h2v3H9zm4 0h2v3h-2zm6 7h-2V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3h2c1.103 0 2-.897 2-2v-5c0-1.103-.897-2-2-2zm-2 7v-5h2l.002 5H17z">
+                  </path>
+                </svg>
+              </label>
+
+              <input type="checkbox" class="task" id="checklist-e-3">
+              <label class="label" for="checklist-e-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                  <path
+                    d="M5 2h2v3H5zm4 0h2v3H9zm4 0h2v3h-2zm6 7h-2V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3h2c1.103 0 2-.897 2-2v-5c0-1.103-.897-2-2-2zm-2 7v-5h2l.002 5H17z">
+                  </path>
+                </svg>
+              </label>
+
+              <input type="checkbox" class="task" id="checklist-e-4">
+              <label class="label" for="checklist-e-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                  <path
+                    d="M5 2h2v3H5zm4 0h2v3H9zm4 0h2v3h-2zm6 7h-2V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3h2c1.103 0 2-.897 2-2v-5c0-1.103-.897-2-2-2zm-2 7v-5h2l.002 5H17z">
+                  </path>
+                </svg>
+              </label>
+              <input type="checkbox" class="task" id="checklist-e-5">
+              <label class="label" for="checklist-e-5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                  <path
+                    d="M5 2h2v3H5zm4 0h2v3H9zm4 0h2v3h-2zm6 7h-2V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3h2c1.103 0 2-.897 2-2v-5c0-1.103-.897-2-2-2zm-2 7v-5h2l.002 5H17z">
+                  </path>
+                </svg>
+              </label>
+            </div>
+          </div>
+
+          <div class="checklist-element">
+            <h3>Tập thể dục</h3>
+            <div class="checklist" data-progress-id="progress-container-2">
+              <input type="checkbox" class="task" id="checklist-e-6">
+              <label class="label" for="checklist-e-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                  <circle cx="17" cy="4" r="2"></circle>
+                  <path
+                    d="M15.777 10.969a2.007 2.007 0 0 0 2.148.83l3.316-.829-.483-1.94-3.316.829-1.379-2.067a2.01 2.01 0 0 0-1.272-.854l-3.846-.77a1.998 1.998 0 0 0-2.181 1.067l-1.658 3.316 1.789.895 1.658-3.317 1.967.394L7.434 17H3v2h4.434c.698 0 1.355-.372 1.715-.971l1.918-3.196 5.169 1.034 1.816 5.449 1.896-.633-1.815-5.448a2.007 2.007 0 0 0-1.506-1.33l-3.039-.607 1.772-2.954.417.625z">
+                  </path>
+                </svg>
+              </label>
+
+              <input type="checkbox" class="task" id="checklist-e-7">
+              <label class="label" for="checklist-e-7">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                  <circle cx="17" cy="4" r="2"></circle>
+                  <path
+                    d="M15.777 10.969a2.007 2.007 0 0 0 2.148.83l3.316-.829-.483-1.94-3.316.829-1.379-2.067a2.01 2.01 0 0 0-1.272-.854l-3.846-.77a1.998 1.998 0 0 0-2.181 1.067l-1.658 3.316 1.789.895 1.658-3.317 1.967.394L7.434 17H3v2h4.434c.698 0 1.355-.372 1.715-.971l1.918-3.196 5.169 1.034 1.816 5.449 1.896-.633-1.815-5.448a2.007 2.007 0 0 0-1.506-1.33l-3.039-.607 1.772-2.954.417.625z">
+                  </path>
+                </svg>
+              </label>
+
+              <input type="checkbox" class="task" id="checklist-e-8">
+              <label class="label" for="checklist-e-8">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                  <circle cx="17" cy="4" r="2"></circle>
+                  <path
+                    d="M15.777 10.969a2.007 2.007 0 0 0 2.148.83l3.316-.829-.483-1.94-3.316.829-1.379-2.067a2.01 2.01 0 0 0-1.272-.854l-3.846-.77a1.998 1.998 0 0 0-2.181 1.067l-1.658 3.316 1.789.895 1.658-3.317 1.967.394L7.434 17H3v2h4.434c.698 0 1.355-.372 1.715-.971l1.918-3.196 5.169 1.034 1.816 5.449 1.896-.633-1.815-5.448a2.007 2.007 0 0 0-1.506-1.33l-3.039-.607 1.772-2.954.417.625z">
+                  </path>
+                </svg>
+              </label>
+
+              <input type="checkbox" class="task" id="checklist-e-9">
+              <label class="label" for="checklist-e-9">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                  <circle cx="17" cy="4" r="2"></circle>
+                  <path
+                    d="M15.777 10.969a2.007 2.007 0 0 0 2.148.83l3.316-.829-.483-1.94-3.316.829-1.379-2.067a2.01 2.01 0 0 0-1.272-.854l-3.846-.77a1.998 1.998 0 0 0-2.181 1.067l-1.658 3.316 1.789.895 1.658-3.317 1.967.394L7.434 17H3v2h4.434c.698 0 1.355-.372 1.715-.971l1.918-3.196 5.169 1.034 1.816 5.449 1.896-.633-1.815-5.448a2.007 2.007 0 0 0-1.506-1.33l-3.039-.607 1.772-2.954.417.625z">
+                  </path>
+                </svg>
+              </label>
+              <input type="checkbox" class="task" id="checklist-e-10">
+              <label class="label" for="checklist-e-10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                  <circle cx="17" cy="4" r="2"></circle>
+                  <path
+                    d="M15.777 10.969a2.007 2.007 0 0 0 2.148.83l3.316-.829-.483-1.94-3.316.829-1.379-2.067a2.01 2.01 0 0 0-1.272-.854l-3.846-.77a1.998 1.998 0 0 0-2.181 1.067l-1.658 3.316 1.789.895 1.658-3.317 1.967.394L7.434 17H3v2h4.434c.698 0 1.355-.372 1.715-.971l1.918-3.196 5.169 1.034 1.816 5.449 1.896-.633-1.815-5.448a2.007 2.007 0 0 0-1.506-1.33l-3.039-.607 1.772-2.954.417.625z">
+                  </path>
+                </svg>
+              </label>
+            </div>
+          </div>
+
+          <div class="checklist-element">
+            <h3>Tâm trạng hôm nay</h3>
+            <div class="checklist" data-progress-id="progress-container-3">
+              <input type="checkbox" class="task" id="checklist-e-11">
+              <label class="label" for="checklist-e-11">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z">
+                  </path>
+                  <circle cx="8.5" cy="10.5" r="1.5"></circle>
+                  <circle cx="15.493" cy="10.493" r="1.493"></circle>
+                  <path d="M7.974 15H16v2H7.974z"></path>
+                </svg>
+              </label>
+
+              <input type="checkbox" class="task" id="checklist-e-12">
+              <label class="label" for="checklist-e-12">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z">
+                  </path>
+                  <circle cx="8.5" cy="10.5" r="1.5"></circle>
+                  <circle cx="15.493" cy="10.493" r="1.493"></circle>
+                  <path d="M7.974 15H16v2H7.974z"></path>
+                </svg>
+              </label>
+
+              <input type="checkbox" class="task" id="checklist-e-13">
+              <label class="label" for="checklist-e-13">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z">
+                  </path>
+                  <circle cx="8.5" cy="10.5" r="1.5"></circle>
+                  <circle cx="15.493" cy="10.493" r="1.493"></circle>
+                  <path d="M7.974 15H16v2H7.974z"></path>
+                </svg>
+              </label>
+
+              <input type="checkbox" class="task" id="checklist-e-14">
+              <label class="label" for="checklist-e-14">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z">
+                  </path>
+                  <circle cx="8.5" cy="10.5" r="1.5"></circle>
+                  <circle cx="15.493" cy="10.493" r="1.493"></circle>
+                  <path d="M12 18c4 0 5-4 5-4H7s1 4 5 4z"></path>
+                </svg>
+              </label>
+              <input type="checkbox" class="task" id="checklist-e-15">
+              <label class="label" for="checklist-e-15">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z">
+                  </path>
+                  <circle cx="8.5" cy="10.5" r="1.5"></circle>
+                  <circle cx="15.493" cy="10.493" r="1.493"></circle>
+                  <path d="M12 18c4 0 5-4 5-4H7s1 4 5 4z"></path>
+                </svg>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="checklist-chart-cont">
+          <canvas id="checklist-chart" height="300"></canvas>
+        </div>
+      </div>
+
+    </section>
+    <section class="container grid-layout-4">
+
+      <div>
+        <div class="wrapper">
+          <form>
+            <input id="todo-input" type="text" placeholder="write anything and hit enter to add" autocomplete="off">
+            <button id="add-button" type="submit">ADD</button>
+
+          </form>
+          <ul id="todo-list">
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="main-cal-cont">
+        <div class="calendar-cont">
+          <div class="box-cal day-before-2"></div>
+          <div class="box-cal day-before-1"></div>
+          <div class="box-cal-today today"></div>
+          <div class="box-cal day-after-1"></div>
+          <div class="box-cal day-after-2"></div>
+        </div>
+        <div class="input-cal">
+          <input type="date" id="date-input" value="">
+        </div>
+      </div>
+
+    </section>
+    <br><br><br><br>
+  </main>
+
+  <!--=============== JS ===============-->
+  <script src="assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+  <script type="module" src="validation.js"></script>
+  <script type="module" src="usermain.js"></script>
+  <script type="module" src="assets/js/todo.js"></script>
+</body>
+
+</html>
