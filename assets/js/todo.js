@@ -1,36 +1,4 @@
-// Import Firebase SDKs
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-  GoogleAuthProvider,
-  signInWithPopup
-} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-storage.js";
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDw09H2-C61eCXH1F8QV6vCuba2HHXUNEY",
-  authDomain: "fir-auth-8375a.firebaseapp.com",
-  projectId: "fir-auth-8375a",
-  storageBucket: "fir-auth-8375a.appspot.com",
-  messagingSenderId: "127672083049",
-  appId: "1:127672083049:web:2c6c7a40e430857eff38f8"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-const storage = getStorage(app);
-const provider = new GoogleAuthProvider();
-
-// ==============================================================================================================================
-// ==============================================================================================================================
 const todoForm = document.querySelector('form');
 const todoInput = document.getElementById('todo-input');
 const todoListUL = document.getElementById('todo-list');
@@ -78,20 +46,19 @@ function saveActiveLabels() {
   localStorage.setItem('activeLabels', JSON.stringify(activeLabels));
 }
 
-// Set initial date to today
 const today = new Date();
-dateInput.value = today.toISOString().split('T')[0]; // Set the date input to today's date
+dateInput.value = today.toISOString().split('T')[0]; 
 
-// Variables and Chart.js setup
+
 const ctx = document.getElementById('todo-chart').getContext('2d');
 const chart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: [], // Dates will be added here
+    labels: [], // Dates 
     datasets: [
       {
         label: 'Todo Progress (%)',
-        data: [], // Progress percentages will be added here
+        data: [], // Progress percentages
         backgroundColor: 'rgba(217, 134, 131, 0.3)',
         borderColor: '#593d3b',
         borderWidth: 1,
@@ -113,7 +80,7 @@ const chart = new Chart(ctx, {
         beginAtZero: true,
         max: 100,
         ticks: {
-          stepSize: 20, // Set the interval to 20
+          stepSize: 20, 
         },
         title: {
           display: false,
@@ -134,7 +101,6 @@ function updateChart(date, progressPercentage) {
     chart.data.datasets[0].data.push(progressPercentage);
   }
 
-  // Sort the dates and corresponding data
   const combined = chart.data.labels.map((label, index) => ({
     label,
     data: chart.data.datasets[0].data[index]
@@ -148,7 +114,6 @@ function updateChart(date, progressPercentage) {
 
   chart.update();
 
-  // Save the updated chart data to localStorage
   saveChartData();
 }
 
@@ -161,11 +126,9 @@ function saveChartData() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Load saved todos and render them
   allTodos = getTodos();
   updateTodoList();
 
-  // Load chart data from localStorage
   loadChartData();
 });
 
@@ -190,7 +153,7 @@ todoForm.addEventListener('submit', function (e) {
 
 function addTodo() {
   const todoText = todoInput.value.trim();
-  const date = dateInput.value; // Get date from the input
+  const date = dateInput.value; 
 
 
   if (todoText.length > 0) {
@@ -261,10 +224,9 @@ function createTodoItem(todo, todoIndex) {
     updateTodoList();
     updatePieChart();
 
-    // Calculate and update the chart when checkbox changes
-    const date = dateInput.value; // Get the date from the input
+    const date = dateInput.value; 
     const progressPercentage = calculateCompletionPercentage(); // Calculate completion percentage
-    updateChart(date, progressPercentage); // Update chart with current date and progress
+    updateChart(date, progressPercentage); // Update chart
   });
   checkbox.checked = todo.completed;
 
@@ -316,10 +278,9 @@ function deleteTodoItem(todoIndex) {
   updateTodoList();
   updatePieChart();
 
-  // Update the chart when a todo item is deleted
-  const date = dateInput.value; // Get the date from the input
-  const progressPercentage = calculateCompletionPercentage(); // Calculate completion percentage
-  updateChart(date, progressPercentage); // Update chart with current date and progress
+  const date = dateInput.value; 
+  const progressPercentage = calculateCompletionPercentage(); 
+  updateChart(date, progressPercentage); // Update chart 
 }
 
 function saveTodos() {
@@ -342,27 +303,22 @@ function updatePieChart() {
   const percentage = calculateCompletionPercentage();
   const pieChart = document.querySelector('.pie');
 
-  // Get the current percentage value
   const currentPercentage = getComputedStyle(pieChart).getPropertyValue('--p').trim();
 
-  // Update the CSS variables
   pieChart.style.setProperty('--p-from', currentPercentage);
   pieChart.style.setProperty('--p', percentage);
 
-  // Reset animation by removing and re-adding the class
   pieChart.classList.remove('animate');
-  void pieChart.offsetWidth;  // Trigger reflow
+  void pieChart.offsetWidth;  // reflow
   pieChart.classList.add('animate');
 
-  // Update the displayed percentage
   pieChart.textContent = `${percentage}%`;
 }
 
 
 dateInput.addEventListener('change', () => {
-  // Uncheck all tasks when the date changes
   allTodos.forEach(todo => {
-    todo.completed = false; // Set completed status to false
+    todo.completed = false;
   });
 
   // Update the UI and save the todos
@@ -373,17 +329,15 @@ dateInput.addEventListener('change', () => {
   updateChart(date, 0);
 });
 
-// Function to format the date
 function formatDate(date) {
-  const options = { weekday: 'short' }; // Get short day name
+  const options = { weekday: 'short' }; 
   const dayName = new Intl.DateTimeFormat('en-US', options).format(date);
   const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+  const month = String(date.getMonth() + 1).padStart(2, '0'); 
   return `${dayName} <br> <p>${day}-${month}</p>`;
 }
 
 
-// Calculate the dates for two days before and two days after
 const dayBefore2 = new Date(today);
 dayBefore2.setDate(today.getDate() - 2);
 const dayBefore1 = new Date(today);
@@ -393,7 +347,6 @@ dayAfter1.setDate(today.getDate() + 1);
 const dayAfter2 = new Date(today);
 dayAfter2.setDate(today.getDate() + 2);
 
-// Update the HTML content of the divs
 document.querySelector('.day-before-2').innerHTML = formatDate(dayBefore2);
 document.querySelector('.day-before-1').innerHTML = formatDate(dayBefore1);
 document.querySelector('.box-cal-today.today').innerHTML = formatDate(today);
@@ -403,7 +356,7 @@ document.querySelector('.day-after-2').innerHTML = formatDate(dayAfter2);
 
 const currentDate = new Date();
 const year = currentDate.getFullYear();
-const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+const month = String(currentDate.getMonth() + 1).padStart(2, '0'); 
 const day = String(currentDate.getDate()).padStart(2, '0');
 
 const formattedDate = `${year}-${month}-${day}`;
@@ -430,7 +383,7 @@ document.querySelectorAll('.checklist').forEach(checklist => {
   const checkboxes = checklist.querySelectorAll('.task');
   checkboxes.forEach(checkbox => {
     checkbox.addEventListener("change", () => {
-      updateChecklistChart(); // Update the chart whenever a checkbox is changed
+      updateChecklistChart(); // Update the chart when a checkbox is changed
     });
   });
 });
@@ -459,13 +412,13 @@ function saveChecklistProgress() {
     const tasks = checklist.querySelectorAll('.task');
     checklistProgress[`checklist-${checklistIndex}`] = Array.from(tasks).map(task => task.checked);
   });
-  console.log("Saved Progress:", checklistProgress); // Debugging
+  console.log("Saved Progress:", checklistProgress); 
   localStorage.setItem('checklistProgress', JSON.stringify(checklistProgress));
 }
 
 function loadChecklistProgress() {
   const checklistProgress = JSON.parse(localStorage.getItem('checklistProgress')) || {};
-  console.log("Loaded Progress:", checklistProgress); // Debugging
+  console.log("Loaded Progress:", checklistProgress); 
   document.querySelectorAll('.checklist').forEach((checklist, checklistIndex) => {
     const tasks = checklist.querySelectorAll('.task');
     const savedTasks = checklistProgress[`checklist-${checklistIndex}`] || [];
@@ -503,7 +456,7 @@ const checklistChart = new Chart(checklistCtx, {
 
 function loadChecklistChartData() {
   const chartData = JSON.parse(localStorage.getItem('checklistChartData')) || { labels: [], datasets: [] };
-  console.log("Loaded Chart Data:", chartData); // Debugging
+  console.log("Loaded Chart Data:", chartData); 
 
   checklistChart.data.labels = chartData.labels;
   checklistChart.data.datasets = chartData.datasets.map(dataset => ({
@@ -522,11 +475,11 @@ function calculateChecklistProgress(checklistIndex) {
 
 function saveChecklistChartData() {
   const chartData = {
-    labels: checklistChart.data.labels, // Save the dates
+    labels: checklistChart.data.labels, 
     datasets: checklistChart.data.datasets.map(dataset => ({
       label: dataset.label,
       data: dataset.data
-    })) // Save the progress data for each checklist
+    })) 
   };
   localStorage.setItem('checklistChartData', JSON.stringify(chartData));
 }
@@ -565,15 +518,15 @@ function updateChecklistChart() {
     }
   });
 
-  checklistChart.update(); // Update the chart
-  saveChecklistChartData(); // Save updated data to localStorage
+  checklistChart.update(); 
+  saveChecklistChartData(); 
 }
 
 
 window.onload = function () {
   loadChecklistProgress();
-  updatePieChart(); // Optionally, update the pie chart on load
-  loadChecklistChartData(); // Load chart data from localStorage
+  updatePieChart(); 
+  loadChecklistChartData(); 
   updateChecklistChart();
 };
 
